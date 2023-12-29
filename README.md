@@ -1,36 +1,38 @@
-# @architecturex/components.input
+# @architecturex/components.renderif
 
-## Input
+## RenderIf
 
-This is a versatile Input component suitable for various form input scenarios.
+The RenderIf component is a simple yet versatile React component designed to conditionally render its children based on the truthiness of the provided props. This component enhances readability and maintainability of conditional rendering logic in React applications.
 
 ### Installation
 
-`npm install @architecturex/components.input`
-
-### Features
-
-- Customizable appearance with fullWidth and error props.
-- Supports all native input props.
-- Built-in focus state handling.
+`npm install @architecturex/components.renderif`
 
 ### Props
 
-- **label (optional):** Displayed above the input.
-- **fullWidth (optional):** Makes the input take the full width of its container.
-- **error (optional):** Indicates if the input has an error, which changes its border color to red.
-- and supports all other native input attributes.
+- **children:** The content to be conditionally rendered. It can be a ReactElement or a string.
+- **isTrue:** A boolean indicating whether the children should be rendered.
+- **isFalse:** An optional boolean to provide an alternative condition for rendering.
 
 ### Usage
 
 ```javascript
-import Input from '@architecturex/components.input'
+import RenderIf from '@architecturex/components.renderif'
 
-function App() {
+const MyComponent = () => {
   return (
     <div>
-      <Input label="Username" />
-      <Input label="Password" type="password" error={true} />
+      <RenderIf isTrue={true}>
+        <p>This will be rendered because isTrue is true</p>
+      </RenderIf>
+
+      <RenderIf isFalse={false}>
+        <p>This will be rendered because isFalse is false</p>
+      </RenderIf>
+
+      <RenderIf isTrue={false}>
+        <p>This will not be rendered because isTrue is false</p>
+      </RenderIf>
     </div>
   )
 }
@@ -38,4 +40,4 @@ function App() {
 
 ### Contribution
 
-Feel free to suggest improvements, report issues, or contribute to enhancing these utilities. Your feedback and contributions are welcome!
+Feel free to suggest improvements, report issues, or contribute to enhancing these components. Your feedback and contributions are welcome!
