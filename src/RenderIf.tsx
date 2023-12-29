@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react'
 
 type Props = {
-  children: ReactElement | string
+  children: ReactElement[] | ReactElement | string
   isTrue?: boolean
   isFalse?: boolean
 }
